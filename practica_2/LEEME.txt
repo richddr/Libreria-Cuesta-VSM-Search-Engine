@@ -1,0 +1,26 @@
+Richard Garcia
+Ricardo Batista
+
+
+Para el pre-procesamiento de la data se tokenizaron el titulo y el argumento de cada libro y se eliminan los stop-words. Se trato de implementar Stemming (buscar la palabra raiz) pero para el lenguaje español esto no arrojaba los resultados correctos. Tambien se trato de buscar palabras via sinonimos pero resulto el mismo caso de stemming que para el lenguaje español no es eficiente y tambien que para poder ofrecer los sinonimos de una palabra en x lenguaje, la palabra tiene que ser pasada en ingles (http://www.nltk.org/howto/wordnet.html) entonces resultaba muy complicado y tedioso este proceso debido a que todos los libros son en español. Otro factor mencionado anteriormente es que nltk no tiene el 100% traducido del lenguaje español (actualmente un 76%, http://compling.hss.ntu.edu.sg/omw/) a diferencia de ingles que si lo esta. Debido a estos factores los resultados no se pudieron optimizar lo mas optimo posible. Una sugerencia para el proximo grupo a dar esta materia seria dar el listado de libros en ingles para asi hacer uso de todas las bondades de nltk.
+
+Al inicio del programa se espera un user input con el query a consultar. Si dicho query es uno de los 3 establecidos en la clase, aparte de los resultados tambien mostrara su precision, recall, y f-measure. Luego de hacer la consulta se le despliegan los libros mas relevantes (ordenados de mayor relevancia a menor relevancia) al usuario y se espera otro user input para que especifique el id del libro que desea ver en su navegador y luego se abre dicho link del libro en un navegador.
+
+
+QUERIES ESTABLECIDOS EN LA CLASE:
+	mujer:
+		precision: 0.5454
+		recall: 0.6
+		f-measure: 0.5714
+
+	historia dominicana: 
+		precision: 0.15
+		recall: 0.75
+		f-measure: 0.2499
+
+	como ganar dinero:
+		precision: 0.5
+		recall: 1.0
+		f-measure: 0.6666
+
+Evaluacion: Como se puede ver en los queries establecidos en la clase, los que mejores resultados obtuvieron fueron 'como ganar dinero' y 'mujer', respectivamente. En el query que funciono peor 'historia dominicana', esto fue causa de la palabra historia, ya que dicha palabra aparece en varios libros (que son de historia) pero no historia dominicana necesariamente. Por ende dichos libros de historia en general tambien fueron arrojados como resultados. Nuevamente reiterando, si el uso de stemming y sinonimos funcionara perfectamente para el lenguaje español en nltk, estos resultados serian mucho mas precisos.
